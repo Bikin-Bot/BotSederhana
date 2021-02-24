@@ -8,6 +8,6 @@ ID Library (beta) : 1QnAO4mNqFd4Kn_MOtvIqCmGC1BvTvxv0MDmB1BvSBzAMmevVejvuk2HW
 
 ## Pencodean 
 1. Pasang lib terlebih dahulu...
-2. Bikin code (contoh dapat dilihat difile bername .gs)
+2. Bikin code (Folder Materi Yang Tersedia)
 3. Deploy
 4. Bot jalan
