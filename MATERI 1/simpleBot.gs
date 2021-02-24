@@ -4,4 +4,10 @@ function doPost(e){
   bot.command('start',(res)=>{
     bot.reply('Hi,Welcome!')
   }) // Bot akan menjawab pesan /startnya dengan Hi, Welcome!
-}  
+} 
+
+//Delpoy
+function setWebhook(){  
+  let res = bot.setWebhook('URL_HASIL_DEPLOY') //Taruh URL hasil deploy disini abistu jalankan functionnya(Boleh Diapus setelah dijalankan)
+  Logger.log(res)
+};
