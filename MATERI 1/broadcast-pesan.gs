@@ -26,6 +26,7 @@ function saveUser(userID){
   let row = db.sheet.getLastRow() + 1 // kita ambil baris terakhir
   let f = db.setValue('A'+row,userID) // 'A'+row disini diartikan sebagai 'A2' baris ke 2 kolom pertama(A)
  }
+ return
 }
 // bikin fungsi broadcast
 function broadcast(text,entities){ //entities disini di butuhkan untuk memformat text jika pesannya mengandung text bold maka akan ke format otomatis. 
@@ -33,22 +34,23 @@ function broadcast(text,entities){ //entities disini di butuhkan untuk memformat
  let success = 0 //pesan yang berhasil dikirim
  let failed = 0 //pesan yang gagal dikirim
  let data = db.getAll() // mengambil semua data user
- let user = data[1] // mengelompokkan ke data tersebut dalam 1 array
- let amount = user.length - 1 // entah kenapa banyak data user +1 dari banyak data yang ada di Spreadsheet. 
+ data.shift() // menghapus data pertama [id]
+ let amount = data.length // banyak user
  bot.build.loop(amount,(i)=>{ // looping kirim pesan 
-    sender ++ // angka sender akan naik seiring looping
+    let user = data[i][0]
+    sender ++ // angka sender akan naik seiring loopiny
     if(sender >= 20){ // jika sender lebih dari 20 atau sama dengan 20
      sender = 0 //kita reset lagi hitungan sender nya
      Utilities.sleep(2000) // jeda 2 detik
      try{ //lanjut broadcast
-       bot.sendMessage(user[i],text,{entities:entities})
+       bot.sendMessage(user,text,{entities:entities})
        success ++ // berhasil ++
      }catch (error){
        failed ++ // gagal ++
      }
    }else{ // jika sender kurang dari 20
      try{ //broadcast pesan
-      bot.sendMessage(user[i],text,{entities:entities})
+      bot.sendMessage(user,text,{entities:entities})
       success ++ // berhasil ++
      }catch(error){
       failed ++ // gagal ++
