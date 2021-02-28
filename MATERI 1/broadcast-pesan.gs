@@ -1,3 +1,9 @@
+/*
+Sebelum Mulai pasang lib database spreedsheet dulu ya!
+ID lib : 1NLQhvkXR9BHzlLELujjwFuEwY9rKaSPGZdE9Fqlfuccza0T4Fe3n5kXk
+lebih jelas ada di pin message @botindonesia
+*/
+
 var bot = new butthx.bot('token bot kamu')
 var db = new miniSheetDB.init('Id Spreadsheet kamu','nama sheet kamu')
 function doPost(e){
